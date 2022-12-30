@@ -1,0 +1,4 @@
+{
+    "diff-tool": "diff $1 $2",
+    "clear": true
+}
