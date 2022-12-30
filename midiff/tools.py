@@ -30,10 +30,10 @@ class MidiffTools:
             return
         self.git_tools = GitTools(git_repo_path_i)
         for path, head in self.git_tools.heads.items():
-            tmp = self.create_non_existing_tmp_file("HEAD_" + os.path.basename(path), ".mid")
-            with open(tmp, "wb") as f:
+            head_file = self.create_non_existing_tmp_file("HEAD_" + os.path.basename(path), ".mid")
+            with open(head_file, "wb") as f:
                 f.write(head)
-            self.git_files.append([path, tmp])
+            self.git_files.append([head_file, path])
 
     def read_settings(self) -> None:
         """
