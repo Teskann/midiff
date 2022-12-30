@@ -60,12 +60,12 @@ class MidiffTools:
         :param extension_i: Extension of the file
         :return: path to the temporary file
         """
-        output_tmp_file_path = os.path.join(tempfile.gettempdir(), file_name_i)
+        output_tmp_file_path = os.path.join(tempfile.gettempdir(), ".".join(file_name_i.split(".")[:-1]))
         if os.path.exists(output_tmp_file_path + extension_i):
             i = 0
             while os.path.isfile(output_tmp_file_path + "_" + str(i) + extension_i):
                 i += 1
-            output_tmp_file_path + "_" + str(i) + extension_i
+            output_tmp_file_path += "_" + str(i) + extension_i
         else:
             output_tmp_file_path += extension_i
         with open(output_tmp_file_path, "w") as _:
