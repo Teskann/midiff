@@ -5,5 +5,5 @@ requirements:
 	echo Installing requirements ...
 	pip install -r requirements.txt
 
-install:
+install: requirements
 	python setup.py install
